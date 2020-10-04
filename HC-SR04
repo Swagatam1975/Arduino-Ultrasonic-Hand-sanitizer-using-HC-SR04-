@@ -1,0 +1,40 @@
+const int trigger = A1;
+const int echo = A2;
+int vcc = A0;
+int gnd = A3;
+int OP = 7;
+long Time;
+float distanceCM;
+float distance = 15;  // set threshold distance in cm
+float resultCM;
+void setup()
+{
+pinMode(OP,OUTPUT);
+pinMode(trigger,OUTPUT);
+pinMode(echo,INPUT);
+pinMode(vcc,OUTPUT);
+pinMode(gnd,OUTPUT);
+}
+void loop()
+{
+digitalWrite(vcc,HIGH);
+digitalWrite(gnd,LOW);
+digitalWrite(trigger,LOW);
+delay(1);
+digitalWrite(trigger,HIGH);
+delayMicroseconds(10);
+digitalWrite(trigger,LOW);
+Time=pulseIn(echo,HIGH);
+distanceCM=Time*0.034;
+resultCM=distanceCM/2;
+if(resultCM<=distance)
+{
+digitalWrite(OP,HIGH);
+delay(4000);
+}
+if(resultCM>=distance)
+{
+digitalWrite(OP,LOW);
+}
+delay(10);
+}
