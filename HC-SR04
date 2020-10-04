@@ -1,3 +1,4 @@
+// More info is given here: https://www.homemade-circuits.com/ultrasonic-hand-sanitizer-circuit //
 const int trigger = A1;
 const int echo = A2;
 int vcc = A0;
@@ -38,3 +39,4 @@ digitalWrite(OP,LOW);
 }
 delay(10);
 }
+// More info is given here: https://www.homemade-circuits.com/ultrasonic-hand-sanitizer-circuit //
